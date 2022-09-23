@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
     int moveSpeed = 500; // how fast the player moves
     float lookSpeedX = 6; // left/right mouse sensitivity
     float lookSpeedY = 3; // up/down mouse sensitivity
+    [SerializeField]
     int jumpForce = 50; // ammount of force applied to create a jump
 
     public Transform camTrans = default; // a reference to the camera transform
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
         yRotation += Input.GetAxis("Mouse X") * lookSpeedX;
         xRotation += Input.GetAxis("Mouse Y") * lookSpeedY; //inverted
         xRotation = Mathf.Clamp(xRotation, -90, 90); //Keeps up/down head rotation realistic
-        camTrans.localEulerAngles = new Vector3(xRotation, yRotation, 0);
+        camTrans.localEulerAngles = new Vector3(-xRotation, yRotation, 0);
 
         if (grounded && Input.GetButtonDown("Jump")) //if the player is on the ground and press Spacebar
         {
