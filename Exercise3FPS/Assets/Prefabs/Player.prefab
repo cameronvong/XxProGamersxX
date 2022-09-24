@@ -229,6 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aed589fe00a223499e4fc991acf6b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 500
   camTrans: {fileID: 6747940893804591443}
   groundLayer:
     serializedVersion: 2
