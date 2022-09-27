@@ -19,6 +19,7 @@ public class SceneManagerScript : MonoBehaviour
         foreach (SceneInfo s in SceneInfoList) {
             Scene scene = SceneManager.GetSceneByName(s.sceneName);
             float currDist = Vector3.Distance(PlayerTrans.position, s.posistion);
+            Debug.Log(scene.name + " dist:" + currDist);
             if (currDist <= range) {    //player in range of scene
                 if (!scene.isLoaded) {
                     loadScene(scene);
