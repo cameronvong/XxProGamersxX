@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerInteract : MonoBehaviour
 {
-    public string LinkedName = "Door1";
-    private float raycastDist = 1;
+    //public string LinkedName = "Door1";
+    private float raycastDist = 2;
     public LayerMask Button;
     public Transform camTrans;
 
@@ -16,12 +16,9 @@ public class PlayerInteract : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             RaycastHit hit;
             if (Physics.Raycast(camTrans.position, camTrans.forward, out hit, raycastDist, Button)) {
-                GameObject lever = hit.collider.gameObject;
-                if (lever.CompareTag("Button")) {
-                    GameObject linked = GameObject.Find(LinkedName);
-                    if (linked) {
-                        Destroy(linked.gameObject);
-                    }
+                var linked = hit.collider.gameObject.GetComponent<DoorLink>();
+                if (linked.CompareTag("Switch")) {
+                    linked.OpenDoor();
                 }
             }
         }
