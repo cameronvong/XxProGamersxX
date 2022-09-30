@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerInteract : MonoBehaviour
 {
     //public string LinkedName = "Door1";
-    private float raycastDist = 2;
+    private float raycastDist = 4;
     public LayerMask Button;
     public Transform camTrans;
 
